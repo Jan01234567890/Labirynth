@@ -153,3 +153,20 @@ Received Import Request.
 Start importing Assets/Scrpits using Guid(697dcae9d2aaf1648b9d5df97f23a6ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4338fa363626eca2051f974af6de4b9') in 0.011576 seconds 
   Import took 0.022615 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 87.321849 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(697dcae9d2aaf1648b9d5df97f23a6ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(697dcae9d2aaf1648b9d5df97f23a6ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb6b6b482002e07208a38bd57444c40f') in 0.010169 seconds 
+  Import took 0.020549 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 806.117409 seconds.
+  path: Assets/Scrpits
+  artifactKey: Guid(74e41c8ef3ef8124280aac2b338e4977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scrpits using Guid(74e41c8ef3ef8124280aac2b338e4977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '786120e7d6f4f913c84bcd21505f976d') in 0.006424 seconds 
+  Import took 0.014681 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
