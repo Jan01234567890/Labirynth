@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     float speed = 12f;
+    [SerializeField]
     float gravity = -10;
-    Vector3 velocity;
     CharacterController characterController;
 
     public Transform groundCheck;
@@ -47,16 +47,24 @@ public class PlayerController : MonoBehaviour
 
             switch(terrainType)
             {
-                default:
-                    speed = 12f;
-                    break;
+                
                 case "Low":
-                    speed = 4f;
+                    speed = 6f;
                     break;
                 case "High":
-                    speed = 20f;
+                    speed = 24f;
+                    break; default:
+                    speed = 12f;
                     break;
             }
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.tag == "PickUp")
+        {
+            hit.gameObject.GetComponent<PickUp>().Picked();
         }
     }
 }
