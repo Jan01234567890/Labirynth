@@ -1126,3 +1126,4 @@ Received Import Request.
 Start importing Assets/Materials/AddTimeMaterial.mat using Guid(88ebf4c57a6420843889358a4c4eed54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a68db3914da76febc317e8fa27090dde') in 0.048716 seconds 
   Import took 0.096930 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
