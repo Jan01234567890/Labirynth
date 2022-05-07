@@ -690,7 +690,7 @@ MonoBehaviour:
   openPosition: {fileID: 307767723}
   closePosition: {fileID: 1354926028}
   speed: 1
-  open: 0
+  open: 1
 --- !u!4 &363172508
 Transform:
   m_ObjectHideFlags: 0

@@ -26,6 +26,6 @@ public class door : MonoBehaviour
 
     public void CloseOpen()
     {
-
+        open = !open;
     }
 }
