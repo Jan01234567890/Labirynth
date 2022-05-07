@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9055522429230726476}
   - component: {fileID: -4468991901853197670}
   m_Layer: 0
-  m_Name: SubstractTime
+  m_Name: SubstractTime 1
   m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

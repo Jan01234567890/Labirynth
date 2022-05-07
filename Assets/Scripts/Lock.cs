@@ -61,7 +61,7 @@ public class Lock : MonoBehaviour
         if(other.tag == "Player")
         {
             iCanOpen = false;
-            Debug.Log("Cannot use lock");
+            Debug.Log("Can't use lock");
         }
     }
 }
