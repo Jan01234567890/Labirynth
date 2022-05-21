@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    public AudioClip pickedClip;
+
     void Update()
     {
         Rotation();

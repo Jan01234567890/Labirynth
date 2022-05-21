@@ -15,6 +15,15 @@ public class GameManager : MonoBehaviour
     public int goldKey = 0;
     public int greenKey = 0;
 
+    AudioSource audioSource;  
+    public AudioClip pauseGameClip;
+    public AudioClip resumeGameClip;
+    public AudioClip loseClip;
+    public AudioClip winClip;
+    
+    MusicManager musicManager;
+    bool isLessTimeOn = false;
+
     void Start()
     {
         if (gameManager== null)
@@ -27,7 +36,9 @@ public class GameManager : MonoBehaviour
             timeToEnd = 100;
         }
 
-        Debug.Log("Time: " + timeToEnd + " s");
+        audioSource = GetComponent<AudioSource>();
+        musicManager = GetComponentInChildren<MusicManager>();
+
         InvokeRepeating("Stopper", 2, 1);
     }
 
@@ -46,24 +57,56 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayClip(AudioClip audioClip)
+    {
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+
     public void PauseGame()
     {
-        Debug.LogWarning("Pause Game");
+        musicManager.OnGamePaused();
+        PlayClip(pauseGameClip);
+        Debug.Log("Pause Game");
         Time.timeScale = 0f;
         gamePaused = true;
     }
 
     public void ResumeGame()
     {
+        musicManager.OnGameResumed();
+        PlayClip(resumeGameClip);
         Debug.Log("Resume Game");
         Time.timeScale = 1f;
         gamePaused = false;
+    }
+
+    public void LessTimeOn()
+    {
+        musicManager.Pitch(1.5f);
+    }
+
+    public void LessTimeOff()
+    {
+        musicManager.Pitch(1f);
     }
 
     void Stopper()
     {
         timeToEnd--;
         Debug.Log($"Time: {timeToEnd} s");
+
+        if(timeToEnd < 20 && !isLessTimeOn)
+        {
+            isLessTimeOn = true;
+            LessTimeOn();
+        }
+
+        if (timeToEnd > 20 && isLessTimeOn)
+        {
+            isLessTimeOn = false;
+            LessTimeOff();
+        }
 
         if (timeToEnd <= 0)
         {
@@ -78,10 +121,17 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         CancelInvoke("Stopper");
+        musicManager.OnGamePaused();
         if (win)
+        {
+            PlayClip(winClip);
             Debug.Log("You win! Reload?");
+        }
         else
+        {
+            PlayClip(loseClip);
             Debug.Log("You lose! Reload?");
+        }
     }
 
     public void AddPoints(int point)
