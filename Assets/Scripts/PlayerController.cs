@@ -6,8 +6,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     float speed = 12f;
-    [SerializeField]
-    float gravity = -10;
     CharacterController characterController;
 
     public Transform groundCheck;
@@ -53,7 +51,8 @@ public class PlayerController : MonoBehaviour
                     break;
                 case "High":
                     speed = 24f;
-                    break; default:
+                    break; 
+                default:
                     speed = 12f;
                     break;
             }

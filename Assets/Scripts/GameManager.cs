@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,25 @@ public class GameManager : MonoBehaviour
     MusicManager musicManager;
     bool isLessTimeOn = false;
 
+    public GameObject pickupPanel;
+    public GameObject snowflakeImage;
+    public Text clockText;
+    public Text coinText;
+    public Text keyRedText;
+    public Text keyGoldText;
+    public Text keyGreenText;
+
+    void ResetUI()
+    {
+        pickupPanel.SetActive(true);
+        snowflakeImage.SetActive(false);
+        clockText.text = "0";
+        coinText.text = "0";
+        keyRedText.text = "0";
+        keyGoldText.text = "0";
+        keyGreenText.text = "0";
+    }
+
     void Start()
     {
         if (gameManager== null)
@@ -37,9 +57,9 @@ public class GameManager : MonoBehaviour
         }
 
         audioSource = GetComponent<AudioSource>();
-        musicManager = GetComponentInChildren<MusicManager>();
-
         InvokeRepeating("Stopper", 2, 1);
+
+        ResetUI();
     }
 
     void Update()
@@ -96,7 +116,7 @@ public class GameManager : MonoBehaviour
         timeToEnd--;
         Debug.Log($"Time: {timeToEnd} s");
 
-        if(timeToEnd < 20 && !isLessTimeOn)
+        if(timeToEnd <= 20 && !isLessTimeOn)
         {
             isLessTimeOn = true;
             LessTimeOn();
